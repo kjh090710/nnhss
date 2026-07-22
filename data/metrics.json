@@ -1,0 +1,151 @@
+{
+  "generatedAt": "2026-07-22T15:35:54.531Z",
+  "dataset": {
+    "total": 5200,
+    "train": 3119,
+    "validation": 1040,
+    "test": 1041,
+    "distribution": {
+      "low": 2837,
+      "medium": 1733,
+      "high": 630
+    },
+    "sourceNote": "공개 독거노인 위험감지 데이터에서 확인 가능한 센서 항목 구조를 참고해 생성한 합성 시나리오 데이터"
+  },
+  "models": {
+    "ruleBased": {
+      "accuracy": 0.7521613832853026,
+      "macroPrecision": 0.8159683135292891,
+      "macroRecall": 0.5995485131946552,
+      "macroF1": 0.6118847026890393,
+      "highPrecision": 1,
+      "highRecall": 0.18253968253968253,
+      "confusionMatrix": [
+        [
+          512,
+          56,
+          0
+        ],
+        [
+          99,
+          248,
+          0
+        ],
+        [
+          4,
+          99,
+          23
+        ]
+      ]
+    },
+    "decisionTree": {
+      "accuracy": 0.7723342939481268,
+      "macroPrecision": 0.7599791362826123,
+      "macroRecall": 0.7114469558304034,
+      "macroF1": 0.7312170276800215,
+      "highPrecision": 0.78125,
+      "highRecall": 0.5952380952380952,
+      "confusionMatrix": [
+        [
+          501,
+          66,
+          1
+        ],
+        [
+          99,
+          228,
+          20
+        ],
+        [
+          5,
+          46,
+          75
+        ]
+      ]
+    },
+    "randomForest": {
+      "accuracy": 0.7617675312199808,
+      "macroPrecision": 0.7236223523975615,
+      "macroRecall": 0.7677298984428506,
+      "macroF1": 0.7117989779314945,
+      "highPrecision": 0.5741626794258373,
+      "highRecall": 0.9523809523809523,
+      "confusionMatrix": [
+        [
+          525,
+          36,
+          7
+        ],
+        [
+          117,
+          148,
+          82
+        ],
+        [
+          0,
+          6,
+          120
+        ]
+      ]
+    }
+  },
+  "highRiskThreshold": 0.31,
+  "thresholdNote": "검증 데이터에서 고위험 재현율 90% 이상을 만족하는 값 중 Macro F1이 가장 높은 임계값",
+  "featureImportances": [
+    {
+      "feature": "missed_checkin_count",
+      "label": "정기 연락 미응답",
+      "importance": 0.378512762630655
+    },
+    {
+      "feature": "no_motion_minutes",
+      "label": "움직임 없음 시간",
+      "importance": 0.268353242465681
+    },
+    {
+      "feature": "usual_inactive_minutes",
+      "label": "평소 비활동 시간",
+      "importance": 0.13759532002921662
+    },
+    {
+      "feature": "recent_contact_success",
+      "label": "최근 연락 성공",
+      "importance": 0.05291291312352939
+    },
+    {
+      "feature": "alert_hour",
+      "label": "경보 발생 시각",
+      "importance": 0.041709624440538474
+    },
+    {
+      "feature": "temperature_risk",
+      "label": "온도 위험",
+      "importance": 0.03870295001499471
+    },
+    {
+      "feature": "sensor_reliability",
+      "label": "센서 신뢰도",
+      "importance": 0.030435348922087976
+    },
+    {
+      "feature": "repeated_alert_count",
+      "label": "반복 경보",
+      "importance": 0.02101079332369342
+    },
+    {
+      "feature": "door_activity_count",
+      "label": "출입문 활동",
+      "importance": 0.016800706587309925
+    },
+    {
+      "feature": "previous_false_alarm_count",
+      "label": "과거 오작동",
+      "importance": 0.01396633846229363
+    }
+  ],
+  "limitations": [
+    "합성 데이터 기반이므로 실제 현장 성능으로 해석할 수 없음",
+    "센서 고장·생활 습관 변화·지역 환경 차이를 완전히 반영하지 못함",
+    "AI 결과는 관리자 판단을 돕는 정보이며 자동 신고 판단으로 사용하지 않음"
+  ]
+}

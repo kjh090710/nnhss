@@ -1,0 +1,17 @@
+{
+  "name": "hondibom-js",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AI 기반 독거노인 위험 우선순위 분석 및 안심파트너 연결 해커톤 프로토타입",
+  "main": "server.js",
+  "scripts": {
+    "build:model": "node scripts/train-model.js",
+    "build": "npm run build:model",
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check src/ml.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
